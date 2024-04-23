@@ -1,0 +1,10 @@
+version: '3'
+services:
+  dl:
+    container_name: dl
+    image: 'centos:7'
+    network_mode: "host"
+    volumes:
+      - ./dl:/dl
+    working_dir: /dl
+    command:  bash run.sh
