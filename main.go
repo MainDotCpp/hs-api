@@ -3,9 +3,9 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"gorm.io/gen"
-	"hs_short_link/model"
-	"hs_short_link/query"
-	"hs_short_link/service"
+	"hs-api/model"
+	"hs-api/query"
+	"hs-api/service"
 )
 
 func main() {

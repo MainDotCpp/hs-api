@@ -6,6 +6,7 @@ package query
 
 import (
 	"context"
+	"hs-api/model"
 
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
@@ -15,8 +16,6 @@ import (
 	"gorm.io/gen/field"
 
 	"gorm.io/plugin/dbresolver"
-
-	"hs_short_link/model"
 )
 
 func newTGeo(db *gorm.DB, opts ...gen.DOOption) tGeo {

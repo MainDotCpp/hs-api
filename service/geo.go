@@ -2,7 +2,7 @@ package service
 
 import (
 	"github.com/gin-gonic/gin"
-	"hs_short_link/query"
+	"hs-api/query"
 )
 
 func GetGeoList(c *gin.Context) {
