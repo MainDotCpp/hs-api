@@ -1,16 +1,16 @@
 package model
 
 import (
-	"fmt"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"hs_short_link/common"
 )
 
 var DB *gorm.DB
 
 func InitDb() {
-	fmt.Printf("init db\n")
 	dsn := "host=localhost user=hs_dl password=7ACQpe7yTr73Ej6S dbname=hs_dl port=5432 TimeZone=Asia/Shanghai"
+	common.Logger.Infof("初始化数据库: %v", dsn)
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
@@ -20,6 +20,5 @@ func InitDb() {
 	//	return
 	//}
 	DB = db
-	fmt.Print("init db success\n")
-	fmt.Print(DB)
+	common.Logger.Info("数据库初始化成功")
 }

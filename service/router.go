@@ -15,6 +15,12 @@ func InitRouter(r *gin.Engine) {
 	{
 		geoRouter.GET("/list", GetGeoList)
 	}
+
+	visitLogRouter := r.Group("/visit_log")
+	{
+		visitLogRouter.GET("/:no", VisitLogService{}.List)
+		visitLogRouter.GET("/:no/page", VisitLogService{}.Page)
+	}
 }
 
 func success(c *gin.Context, data interface{}) {

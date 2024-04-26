@@ -23,6 +23,7 @@ type TClientInfo struct {
 	Latitude      float64 `gorm:"column:latitude" json:"latitude"`
 	ContinentCode string  `gorm:"column:continent_code" json:"continent_code"`
 	CountryCode   string  `gorm:"column:country_code" json:"country_code"`
+	CloakResponse string  `gorm:"column:cloak_response" json:"cloak_response"`
 }
 
 // TableName TClientInfo's table name

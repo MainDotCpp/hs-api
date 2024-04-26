@@ -3,12 +3,16 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"gorm.io/gen"
+	"hs_short_link/common"
 	"hs_short_link/model"
 	"hs_short_link/query"
 	"hs_short_link/service"
 )
 
 func main() {
+	// 初始化日志
+	common.InitLogger()
+	// 初始化数据库
 	model.InitDb()
 	query.SetDefault(model.DB)
 	//genDb()

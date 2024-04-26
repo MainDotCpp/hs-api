@@ -42,6 +42,7 @@ func newTClientInfo(db *gorm.DB, opts ...gen.DOOption) tClientInfo {
 	_tClientInfo.Latitude = field.NewFloat64(tableName, "latitude")
 	_tClientInfo.ContinentCode = field.NewString(tableName, "continent_code")
 	_tClientInfo.CountryCode = field.NewString(tableName, "country_code")
+	_tClientInfo.CloakResponse = field.NewString(tableName, "cloak_response")
 
 	_tClientInfo.fillFieldMap()
 
@@ -67,6 +68,7 @@ type tClientInfo struct {
 	Latitude      field.Float64
 	ContinentCode field.String
 	CountryCode   field.String
+	CloakResponse field.String
 
 	fieldMap map[string]field.Expr
 }
@@ -98,6 +100,7 @@ func (t *tClientInfo) updateTableName(table string) *tClientInfo {
 	t.Latitude = field.NewFloat64(table, "latitude")
 	t.ContinentCode = field.NewString(table, "continent_code")
 	t.CountryCode = field.NewString(table, "country_code")
+	t.CloakResponse = field.NewString(table, "cloak_response")
 
 	t.fillFieldMap()
 
@@ -114,7 +117,7 @@ func (t *tClientInfo) GetFieldByName(fieldName string) (field.OrderExpr, bool) {
 }
 
 func (t *tClientInfo) fillFieldMap() {
-	t.fieldMap = make(map[string]field.Expr, 15)
+	t.fieldMap = make(map[string]field.Expr, 16)
 	t.fieldMap["id"] = t.ID
 	t.fieldMap["ip"] = t.IP
 	t.fieldMap["no"] = t.No
@@ -130,6 +133,7 @@ func (t *tClientInfo) fillFieldMap() {
 	t.fieldMap["latitude"] = t.Latitude
 	t.fieldMap["continent_code"] = t.ContinentCode
 	t.fieldMap["country_code"] = t.CountryCode
+	t.fieldMap["cloak_response"] = t.CloakResponse
 }
 
 func (t tClientInfo) clone(db *gorm.DB) tClientInfo {
