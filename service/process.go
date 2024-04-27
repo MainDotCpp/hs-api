@@ -3,7 +3,7 @@ package service
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"hs_short_link/model"
+	"hs-api/model"
 )
 
 func Process(c *gin.Context) {
