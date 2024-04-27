@@ -8,6 +8,7 @@ import (
 
 func Process(c *gin.Context) {
 	no := c.Param("no")
+	preview := c.Query("preview")
 	var visitParam model.TClientInfo
 	var header = c.Request.Header
 	visitParam.IP = c.ClientIP()
@@ -23,7 +24,7 @@ func Process(c *gin.Context) {
 	model.DB.Where("no = ?", no).First(&schema)
 
 	result := schema.Check(&visitParam)
-	if result {
+	if result || preview == "true" {
 		c.Redirect(301, schema.DestLink)
 		return
 	} else {
